@@ -160,3 +160,15 @@ h4 {
   flex-direction: column;
   margin-top: 20px;
 }
+select{
+  margin-top: 20px
+}
+form{
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin-top: 50px
+}
+input{
+  margin-bottom: 10px
+}
