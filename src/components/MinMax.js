@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 function MinMax({ min = 1, max, current, onChange }) {
   // валидация инпута
   function applyCurrent(num) {
@@ -13,14 +14,26 @@ function MinMax({ min = 1, max, current, onChange }) {
 
   const inc = () => applyCurrent(current + 1)
   const dec = () => applyCurrent(current - 1)
+  const enterInc = (e) => {
+    console.log(e)
+    if(e.code == "Enter"){
+      applyCurrent(current + 1)
+    }
+  }
+  const enterDec = (e) => {
+    console.log(e)
+    if(e.code == "Enter"){
+      applyCurrent(current - 1)
+    }
+  }
 
   return (
     <div>
-      <button type="button" onClick={dec} className="removeButton">
+      <button type="button" onBlur={dec} onKeyPress={enterDec} className="removeButton">
         -
       </button>
       <input type="text" value={current} onChange={parseCurrentStr} />
-      <button type="button" onClick={inc} className="addButton">
+      <button type="button" onBlur={inc} onKeyPress={enterInc} className="addButton">
         +
       </button>
     </div>
